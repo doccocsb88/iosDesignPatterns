@@ -9,13 +9,16 @@
 #import "ViewController.h"
 #import "LibraryAPI.h"
 #import "Album+TableRepresentation.h"
-
-@interface ViewController () <UITableViewDataSource, UITableViewDelegate>
+#import "HorizontalScroller.h"
+#import "AlbumView.h"
+@interface ViewController () <UITableViewDataSource, UITableViewDelegate, HorizontalScrollerDelegate>
 {
     UITableView *dataTable;
     NSArray *allAlbums;
     NSDictionary *currentAlbumData;
     int currentAlbumIndex;
+    HorizontalScroller *scroller;
+
 }
 @end
 
@@ -38,6 +41,15 @@
     dataTable.dataSource = self;
     dataTable.backgroundView = nil;
     [self.view addSubview:dataTable];
+    //
+    scroller = [[HorizontalScroller alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 120)];
+    scroller.backgroundColor = [UIColor colorWithRed:0.24f green:0.35f blue:0.49f alpha:1];
+    scroller.delegate = self;
+    [self.view addSubview:scroller];
+    
+    [self reloadScroller];
+    [self showDataForAlbumAtIndex:currentAlbumIndex];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -65,7 +77,9 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [currentAlbumData[@"titles"] count];
+    NSInteger count = [currentAlbumData[@"titles"] count];
+    NSLog(@"numberofitem: %ld",count);
+    return count;
 }
 
 - (UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -80,5 +94,30 @@
     cell.detailTextLabel.text = currentAlbumData[@"values"][indexPath.row];
     
     return cell;
+}
+
+#pragma mark - HorizontalScrollerDelegate methods
+- (void)horizontalScroller:(HorizontalScroller *)scroller clickedViewAtIndex:(int)index
+{
+    currentAlbumIndex = index;
+    [self showDataForAlbumAtIndex:index];
+}
+- (NSInteger)numberOfViewsForHorizontalScroller:(HorizontalScroller*)scroller
+{
+    return allAlbums.count;
+}
+- (UIView*)horizontalScroller:(HorizontalScroller*)scroller viewAtIndex:(int)index
+{
+    Album *album = allAlbums[index];
+    return [[AlbumView alloc] initWithFrame:CGRectMake(0, 0, 100, 100) albumCover:album.coverUrl];
+}
+- (void)reloadScroller
+{
+    allAlbums = [[LibraryAPI sharedInstance] getAlbums];
+    if (currentAlbumIndex < 0) currentAlbumIndex = 0;
+    else if (currentAlbumIndex >= allAlbums.count) currentAlbumIndex = allAlbums.count-1;
+    [scroller reload];
+    
+    [self showDataForAlbumAtIndex:currentAlbumIndex];
 }
 @end

@@ -7,11 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		185E631D1BBD3CA0000446D2 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 185E631C1BBD3CA0000446D2 /* Album.m */; settings = {ASSET_TAGS = (); }; };
-		185E63201BBD3D15000446D2 /* AlbumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185E631F1BBD3D15000446D2 /* AlbumView.m */; settings = {ASSET_TAGS = (); }; };
-		185E63251BBD3E34000446D2 /* LibraryAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 185E63241BBD3E34000446D2 /* LibraryAPI.m */; settings = {ASSET_TAGS = (); }; };
-		185E63281BBD3E92000446D2 /* PersistencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 185E63271BBD3E92000446D2 /* PersistencyManager.m */; settings = {ASSET_TAGS = (); }; };
-		185E632B1BBD4724000446D2 /* Album+TableRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 185E632A1BBD4724000446D2 /* Album+TableRepresentation.m */; settings = {ASSET_TAGS = (); }; };
+		0B8457B91BBD6A1A000C9363 /* HorizontalScroller.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B8457B81BBD6A1A000C9363 /* HorizontalScroller.m */; };
+		185E631D1BBD3CA0000446D2 /* Album.m in Sources */ = {isa = PBXBuildFile; fileRef = 185E631C1BBD3CA0000446D2 /* Album.m */; };
+		185E63201BBD3D15000446D2 /* AlbumView.m in Sources */ = {isa = PBXBuildFile; fileRef = 185E631F1BBD3D15000446D2 /* AlbumView.m */; };
+		185E63251BBD3E34000446D2 /* LibraryAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 185E63241BBD3E34000446D2 /* LibraryAPI.m */; };
+		185E63281BBD3E92000446D2 /* PersistencyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 185E63271BBD3E92000446D2 /* PersistencyManager.m */; };
+		185E632B1BBD4724000446D2 /* Album+TableRepresentation.m in Sources */ = {isa = PBXBuildFile; fileRef = 185E632A1BBD4724000446D2 /* Album+TableRepresentation.m */; };
 		450EECC017A9B03A00957F62 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450EECBF17A9B03A00957F62 /* UIKit.framework */; };
 		450EECC217A9B03A00957F62 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450EECC117A9B03A00957F62 /* Foundation.framework */; };
 		450EECC417A9B03A00957F62 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 450EECC317A9B03A00957F62 /* CoreGraphics.framework */; };
@@ -26,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B8457B71BBD6A1A000C9363 /* HorizontalScroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HorizontalScroller.h; sourceTree = "<group>"; };
+		0B8457B81BBD6A1A000C9363 /* HorizontalScroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HorizontalScroller.m; sourceTree = "<group>"; };
 		185E631B1BBD3CA0000446D2 /* Album.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Album.h; sourceTree = "<group>"; };
 		185E631C1BBD3CA0000446D2 /* Album.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Album.m; sourceTree = "<group>"; };
 		185E631E1BBD3D15000446D2 /* AlbumView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlbumView.h; sourceTree = "<group>"; };
@@ -85,6 +88,8 @@
 			children = (
 				185E631E1BBD3D15000446D2 /* AlbumView.h */,
 				185E631F1BBD3D15000446D2 /* AlbumView.m */,
+				0B8457B71BBD6A1A000C9363 /* HorizontalScroller.h */,
+				0B8457B81BBD6A1A000C9363 /* HorizontalScroller.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -236,6 +241,7 @@
 				185E63201BBD3D15000446D2 /* AlbumView.m in Sources */,
 				185E63281BBD3E92000446D2 /* PersistencyManager.m in Sources */,
 				185E63251BBD3E34000446D2 /* LibraryAPI.m in Sources */,
+				0B8457B91BBD6A1A000C9363 /* HorizontalScroller.m in Sources */,
 				450EECD917A9B03A00957F62 /* ViewController.m in Sources */,
 				185E632B1BBD4724000446D2 /* Album+TableRepresentation.m in Sources */,
 				185E631D1BBD3CA0000446D2 /* Album.m in Sources */,

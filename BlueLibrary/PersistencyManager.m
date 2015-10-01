@@ -25,6 +25,7 @@
                     [[Album alloc] initWithTitle:@"Staring at the Sun" artist:@"U2" coverUrl:@"http://www.coversproject.com/static/thumbs/album/album_u2_staring%20at%20the%20sun.png" year:@"2000"],
                     [[Album alloc] initWithTitle:@"American Pie" artist:@"Madonna" coverUrl:@"http://www.coversproject.com/static/thumbs/album/album_madonna_american%20pie.png" year:@"2000"]]];
     }
+    NSLog(@"PersistencyManager : init %ld",albums.count);
     return self;
 }
 - (NSArray*)getAlbums
@@ -43,5 +44,18 @@
 - (void)deleteAlbumAtIndex:(int)index
 {
     [albums removeObjectAtIndex:index];
+}
+- (void)saveImage:(UIImage*)image filename:(NSString*)filename
+{
+    filename = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@", filename];
+    NSData *data = UIImagePNGRepresentation(image);
+    [data writeToFile:filename atomically:YES];
+}
+
+- (UIImage*)getImage:(NSString*)filename
+{
+    filename = [NSHomeDirectory() stringByAppendingFormat:@"/Documents/%@", filename];
+    NSData *data = [NSData dataWithContentsOfFile:filename];
+    return [UIImage imageWithData:data];
 }
 @end
